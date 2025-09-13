@@ -90,9 +90,8 @@ export function activate(context: vscode.ExtensionContext) {
             if (fs.existsSync(tasksPath)) {
                 const content = fs.readFileSync(tasksPath, 'utf8');
                 try {
-                    // Use a regular expression to remove comments before parsing
-                    const jsonContent = content.replace(/\/\/[^\n\r]*|\/\*[
-\s\S]*?\*\//g, '');
+                    // Correctly escaped regex to remove comments from JSON
+                    const jsonContent = content.replace(/\/\/[^\n\r]*|\/\*[\s\S]*?\*\//g, '');
                     if (jsonContent.trim() === '') {
                         tasksConfig = { version: '2.0.0', tasks: [] as any[] };
                     } else {
@@ -125,7 +124,6 @@ export function activate(context: vscode.ExtensionContext) {
                 problemMatcher: ["$gcc"]
             };
 
-            // Avoid adding duplicate tasks
             const taskExists = tasksConfig.tasks.some(task => task.label === asanBuildTask.label);
             if (!taskExists) {
                 tasksConfig.tasks.push(asanBuildTask);
@@ -142,9 +140,8 @@ export function activate(context: vscode.ExtensionContext) {
             if (fs.existsSync(launchPath)) {
                 const content = fs.readFileSync(launchPath, 'utf8');
                 try {
-                    // Use a regular expression to remove comments before parsing
-                    const jsonContent = content.replace(/\/\/[^\n\r]*|\/\*[
-\s\S]*?\*\//g, '');
+                    // Correctly escaped regex to remove comments from JSON
+                    const jsonContent = content.replace(/\/\/[^\n\r]*|\/\*[\s\S]*?\*\//g, '');
                      if (jsonContent.trim() === '') {
                         launchConfig = { version: '0.2.0', configurations: [] as any[] };
                     } else {

@@ -1,9 +1,10 @@
 {
   "name": "cpp-memory-checker",
-  "publisher": "your-publisher-id",
+  "publisher": "KaihuaLi",
   "displayName": "C++ Memory Checker",
   "description": "A VS Code extension to check for potential memory leaks in C++ code using static and runtime analysis.",
   "version": "0.0.1",
+  "repository": "https://github.com/foxkillerli/vscode-cpp-memory-checker",
   "engines": {
     "vscode": "^1.80.0"
   },
