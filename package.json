@@ -1,0 +1,45 @@
+{
+  "name": "cpp-memory-checker",
+  "publisher": "your-publisher-id",
+  "displayName": "C++ Memory Checker",
+  "description": "A VS Code extension to check for potential memory leaks in C++ code using static and runtime analysis.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "activationEvents": [
+    "onCommand:cpp-memory-checker.checkCurrentFile",
+    "onCommand:cpp-memory-checker.configureForRuntimeCheck"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cpp-memory-checker.checkCurrentFile",
+        "title": "C++ Memory Check: Analyze Current File"
+      },
+      {
+        "command": "cpp-memory-checker.configureForRuntimeCheck",
+        "title": "C++ Memory Check: Configure for Runtime Analysis"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6"
+  }
+}
